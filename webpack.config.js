@@ -21,6 +21,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
-    publicPath: '/main/'
+    publicPath: '/main/',
+    watchContentBase: true
   }
 };
