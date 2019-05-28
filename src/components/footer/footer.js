@@ -4,10 +4,10 @@ const footer = {
   partOf: '<p id= "partof">Part of Decagon TodoMVC</p>',
   footerTags() {
     return `<footer>
-    ${footer.clickToEdit}
-    ${footer.credits}
-    ${footer.partOf}
-    <footer>`;
+                        ${footer.clickToEdit}
+                        ${footer.credits}
+                        ${footer.partOf}
+                  <footer>`;
   }
 };
 const { footerTags } = footer;
