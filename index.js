@@ -30,6 +30,4 @@ formField.addEventListener('submit', event => {
   Element.createTodo(value);
 
   event.target.elements.todoBox.value = ' ';
-
-  Element.getTodos();
 });

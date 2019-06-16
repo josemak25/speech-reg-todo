@@ -3,11 +3,12 @@ const footer = {
   credits: '<p id="credits">Victor, Sodiquee, Abetang and Charlse</p>',
   partOf: '<p id= "partof">Part of Decagon TodoMVC</p>',
   footerTags() {
-    return `<footer>
-                        ${footer.clickToEdit}
-                        ${footer.credits}
-                        ${footer.partOf}
-                  <footer>`;
+    return `
+    <footer class="footer-section">
+      ${footer.clickToEdit}
+      ${footer.credits}
+      ${footer.partOf}
+    <footer>`;
   }
 };
 const { footerTags } = footer;
