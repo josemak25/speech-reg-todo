@@ -1,5 +1,5 @@
 import Todo from './todo';
-import todoList from '../components/todo-list/todo-list';
+import { log } from 'util';
 
 class Render {
   constructor(name) {
@@ -19,22 +19,36 @@ class Render {
 
   // eslint-disable-next-line class-methods-use-this
   getTodos() {
-    let todos = localStorage.getItem('todos');
-    todos = JSON.parse(todos);
-    this.render(todos);
+    const todos = Todo.getTodos();
+
+    if (!todos) return `<span class='no-todo'>Add a new Todo</span>`;
+    return todos
+      .map(todo => {
+        return `
+        <div class="item">
+          <input type="checkbox"/>
+           <p class="tody-text">${todo._body}</p>
+        </div>`;
+      })
+      .join('');
   }
 
   // eslint-disable-next-line class-methods-use-this
-  render(todos) {
-    todos.forEach(todo => {
-      const todoTodo = todoList(todo);
-      this.addToTodoList(todoTodo);
-    });
-  }
+  render(todo) {
+    let div = document.createElement('div');
+    div.classList.add('item');
+    div.innerHTML = ` <input type="checkbox"/>
+       <p class="tody-text">${todo}</p>`;
 
-  addToTodoList(todo) {
-    const check = this.getElementById('todoList');
-    check.appendChild = todo;
+    let inbox = document.querySelector('.inbox');
+    let todos = localStorage.getItem('todos');
+    if (!todos) {
+      inbox.innerHTML = '';
+      inbox.append(div);
+      return;
+    }
+
+    inbox.append(div);
   }
 }
 

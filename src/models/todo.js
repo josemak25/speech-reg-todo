@@ -24,6 +24,12 @@ class Todo {
       localStorage.setItem('todos', JSON.stringify(todos));
     }
   }
+
+  static getTodos() {
+    const todos = localStorage.getItem('todos');
+    if (!todos) return;
+    return JSON.parse(todos);
+  }
 }
 
 export default Todo;
